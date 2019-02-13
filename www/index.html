@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        -->
+		<meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css"> 
+		
+        <title>ChecaMed</title>
+    </head>
+	<style type="text/css">
+	  body {
+		    background:url('img/fondo5.png')  repeat 0 0;   
+            background-size: 10px 100px;	
+			background-color:rgb(0,85,129);	
+	  }
+	 
+	  .boton_personalizado{
+		text-decoration: none;
+		border: 0px;
+		background-color: transparent;
+		width:120px;
+		height:120px;
+  	  }
+	  .boton_personalizado2{
+		text-decoration: none;
+		border: 0px;
+		background-color: transparent;
+		width:200px;
+		height:200px;
+  	  }
+	 .estiloColumnas{
+	   color:white;
+	 }
+	 .estiloIdentificador{
+	  font-size:8px;
+	  text-align: right;
+	   color:white;
+	 }
+	 a:link{   
+	 text-decoration:none;  
+     color:white;	 
+	}   
+	@font-face {
+	 font-family: 'fuente1';
+	 src: url('fonts/Lato-Light.ttf');
+	}
+	@font-face {
+	 font-family: 'fuente2';
+	 src: url('fonts/Lato-Thin.ttf');
+	}
+	@font-face {
+	 font-family: 'fuente3';
+	 src: url('fonts/Lato-Medium.ttf');
+	}
+	@font-face {
+	 font-family: 'fuente4';
+	 src: url('fonts/Lato-Regular.ttf');
+	}
+	@font-face {
+	 font-family: 'fuente5';
+	 src: url('fonts/Lato-Bold.ttf');
+	}
+	@font-face {
+	 font-family: 'fuente6';
+	 src: url('fonts/Lato-Heavy.ttf');
+	}
+	@font-face {
+	 font-family: 'fuente7';
+	 src: url('fonts/Lato-BoldItalic.ttf');
+	}
+	@font-face {
+	 font-family: 'fuente8';
+	 src: url('fonts/Lato-Black.ttf');
+	}
+	 
+	
+	
+
+	.NombreMecicinas{
+	   background-color:rgb(231,244,247);
+	    font-family:fuente5;
+		color:rgb(9,149,182);
+		
+	}
+	.DataMecicinas{
+	    background-color:rgb(247,247,247); 
+	    font-family:fuente4;
+		color:rgb(9,149,182);
+		
+	}
+	.DataMecicinas2{
+	    background-color:rgb(8,178,184);
+	    font-family:fuente4;
+		color:rgb(247,247,247);
+	}
+	
+	.fondoGradiente{
+	  background: rgb(8,150,182); /* For browsers that do not support gradients */
+	  background: -webkit-linear-gradient(left, red , yellow); /* For Safari 5.1 to 6.0 */
+	  background: -o-linear-gradient(right, red, yellow); /* For Opera 11.1 to 12.0 */
+	  background: -moz-linear-gradient(right, red, yellow); /* For Firefox 3.6 to 15 */
+	  background: linear-gradient(to right, red , yellow); /* Standard syntax */
+	}
+	
+	 
+	 td{ line-height:180%;}
+	 td a{color:#222; text-decoration:none;}
+	 td a:before{ content:"\025b8"; color:#ddd; margin-right:4px;}
+	 input[name="list"] {
+		position: absolute;
+		left: -1000em;
+		}
+	 label:before{ content:"\025b8"; margin-right:4px;}
+	input:checked ~ label:before{ content:"\025be";}
+	.interior{display: none;}
+	
+	columnas{   
+	         
+            column-span: 1; /* W3C */
+			-webkit-column-span: 1; /* Safari & Chrome */
+			-moz-column-span: 1; /* Firefox */
+			-ms-column-span: 1; /* Internet Explorer */
+			-o-column-span: 1; /* Opera */
+			 -webkit-column-count: 1; /* Chrome, Safari, Opera */
+			-moz-column-count: 1; /* Firefox */
+			column-count: 1;
+	}
+ 
+	</style>
+    <body  >
+	    
+	    <div align="center"><img src="img/titulo2.png"  width="320px" /></div>
+		<div><p id="identificador" class="estiloIdentificador" >id: </p></div>
+
+		  <p id="busqueda2" style='font-size:20px; font-family:fuente2;' class="blink"  ></p> 
+        <div data-role="" id="home">
+            <div data-role="header">
+               <!-- <h1>Home</h1>-->
+            </div>
+
+            <div data-role="main" class="ui-content" align="center">
+                    
+
+                    <button class="boton_personalizado2" id="scan" ><img src="img/boton2C1.png" width="100%" height="100%" /></button><br>
+                    &nbsp;&nbsp;&nbsp;<button class="boton_personalizado" id="boton"><img src="img/boton2C.png" id="imagen" width="100px" /></button>
+					
+					
+            </div>
+			
+        </div>
+		   
+            <div data-role="header"> 
+			<div  id="cabeceraTitulos" ><img src="img/titulo3.png" width="320px" align="center" /></div>
+            </div>
+            <h1><br><br></h1> 
+            <div data-role="main" class="ui-content" id="display">
+                <table data-role="table" data-mode="column" id="allTable" class="ui-responsive" border="0" >
+                    <thead>
+                        <tr> 
+                            <!--  <th id="cabeceraTitulos" class="estiloColumnas">Name</th>
+                            <th id="cabeceraTitulos2" class="estiloColumnas">Values</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+			 <div  class="ui-content" id="display2">
+                <table width='100%' data-role="table" data-mode="column"  id="allTable2" class="ui-responsive" border="0" >
+                    
+					<tbody>
+                    </tbody>
+                </table>
+
+            </div>
+		  <!-- <button id="botonAparte" onclick="listadoCarga();"> cargar Medicnas archivos</button>   -->
+		
+		 <!-- <button id="rellenarPavoHorno"  > ordenar Medicinas </button> -->
+
+    </body>
+	<script src="js/jquery-2.1.4.min.js"></script>
+    <!-- <script src="js/jquery.mobile-1.4.5.min.js"></script> --> 
+	<script type="text/javascript" src="cordova.js"></script>
+    <!-- <script type="text/javascript" src="js/index.js"></script> -->	
+	<script>
+	var direccion='18.221.178.29';
+
+	
+	document.addEventListener("deviceready", onDeviceReady, false);  
+    
+    function onDeviceReady() {  
+      /*var vInfo =  'Device Name: ' + device.name + '\n' +  
+        'Device Cordova: ' + device.cordova + '\n' +  
+        'Device Platform: ' + device.platform + '\n' +  
+        'Device UUID: ' + device.uuid + '\n' +  
+        'Device Version: '+ device.version;  
+       alert(vInfo);  */
+	   etiquetaID=document.getElementById("identificador");
+	   etiquetaID.innerHTML ="ID: "+device.uuid;
+	   
+	   //volver las cabeceraTitulos invisibles:
+	   $("#cabeceraTitulos").hide();
+	   $("#cabeceraTitulos2").hide();
+	  /* navigator.notification.alert(
+			'You are the winner!',  // message
+			alertDismissed,         // callback
+			'Game Over',            // title
+			'Done'                  // buttonName
+		);
+	  */
+    } 
+	
+	function alertDismissed() {
+    // do something
+    }
+	//ordenar 
+	$('#rellenarPavoHorno').click(function(){
+	   listadoMenu();
+ 	   
+    });
+  
+     //ordenamiento  Alfabetico 
+	 function ordenamientoAlpha(){
+	    var listado = $('table#allTable tbody');
+		
+		var elementos = listado.children("tr").get();
+		
+		elementos.sort(function(a,b) {
+			var A = $(a).text().toUpperCase();
+			var B = $(b).text().toUpperCase();
+			return (A < B) ? -1 : (A > B) ? 1 : 0;
+		});
+	 
+		$.each(elementos, function(id, elemento) {
+			listado.append(elemento);
+		});
+		
+		for(var count = elementos.length/2; count < elementos.length; count++){     
+			if(count%2!=0){
+				fondo="#005581";
+			}else{
+				fondo="#007FA9";
+			}
+           elementos[count].style.backgroundColor=fondo;			
+         }			
+	 }
+	 
+	 Date.prototype.toString = function() { return this.getFullYear()+"-"+(this.getMonth()+1)+"-"+this.getDate(); } 
+
+
+	 //arcordionOculto()
+	function arcordionOculto(){
+	    var listado = $('table#allTable tbody');
+		var listado2 =$('table#allTable2 tbody');
+		listado2.empty();
+		var elementos = listado.children("tr").get();
+	    var resultado;
+		var nombreAnterior="",nombreActual="";
+		var fechaVencida,serial,manufacturer,medicineStatus;
+		var miFecha = new Date(); 
+		
+		for(var count = elementos.length/2; count < elementos.length; count++){
+		   resultado = elementos[count].innerHTML.split("tradeName");// se parten en 2 
+		   resultado=resultado[1].substring(6).split("<br>");// se parte luego que se tiene el nombre de la medicina		    
+		   //alert(resultado[0]);//el nombre exacto de la medicina
+		   nombreActual=resultado[0];
+		   
+		   fechaVencida=elementos[count].innerHTML.split("expiryDate");
+		   fechaVencida=fechaVencida[1].substring(6).split("<br>");
+		   //solo la fecha de vencimiento
+		   fechaVencida=fechaVencida[0];
+		   //alert(fechaVencida);
+		   //el serial
+		   serial=elementos[count].innerHTML.split("serialNumber");
+		   serial=serial[1].substring(6).split("<br>");
+		   //solo la fecha de vencimiento
+		   serial=serial[0];
+		   
+		   
+		   //solo estatus
+		   medicineStatus=elementos[count].innerHTML.split("Status");
+		   medicineStatus=medicineStatus[1].substring(6).split("<br>");
+		   //solamente estatus
+		   medicineStatus=medicineStatus[0].split("<");	
+		   medicineStatus=medicineStatus[0];
+		   //alert(medicineStatus);
+		   manufacturer=elementos[count].innerHTML.split("manufacturer");
+		   manufacturer=manufacturer[1].substring(6).split("<br>");
+		   //solo la fecha de vencimiento
+		   manufacturer=manufacturer[0];
+		   
+		   if(nombreActual!=nombreAnterior){ //si esta condicion se cumple es porque efectivamente se omite las repeticiones
+		       //alert(resultado[0]);
+			   var numeral='nivel'+count.toString(10);  
+			   
+			   //alert(numeral);
+			   //(\"" + descomprimir.serialNumber +"\",\""+count+"\")'
+			   listado2.append("<tr class='NombreMecicinas'  ><td  colspan='2'><br><input type='checkbox'  onclick='ocultarFilas(\""+numeral+"\",\""+'false'+"\");' name='list' id="+numeral+" checked=''><label for="+numeral+" >"+nombreActual+"</label><br></td></tr>");
+		   }
+		    var numeral2='sub-nivel'+count.toString(10);
+			var estatusId="Status"+numeral2;
+			var fechaExpiracion=fechaVencida.split("T")[0];
+            //alert("<tr class='DataMecicinas interior "+numeral+" '   ><td colspan='2'><br>Fecha Vencimiento: "+fechaVencida+"<br></td></tr>");		   
+		    listado2.append("<tr class='DataMecicinas  interior "+numeral+"' > <td class='columnas' colspan='2' ><br><input type='checkbox'  onclick='ocultarFilas(\""+numeral2+"\",\""+'true'+"\");' name='list' id="+numeral2+" checked=''><label for="+numeral2+" >Fecha Reg.: "+miFecha+" Fecha Venc.: "+fechaExpiracion+"</label><br></td></tr>");
+			listado2.append("<tr class='DataMecicinas2 interior "+numeral2+"' ><td class='columnas' colspan='2' ><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numero Serial: "+serial+"<br></td></tr>");
+			listado2.append("<tr class='DataMecicinas2 interior "+numeral2+"' ><td class='columnas' colspan='2' ><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Estado: "+validarColorStatus(medicineStatus,estatusId,miFecha,fechaExpiracion)+"<br></td></tr>");
+			listado2.append("<tr class='DataMecicinas2 interior "+numeral2+"' ><td class='columnas' colspan='2' ><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fabrica: "+manufacturer+"<br></td></tr>");
+
+		   nombreAnterior=nombreActual; //tome el nombre actual para la siguiente iteracion sea el anterior nombre
+		}
+		//listado2.closest("tabla2#allTable2").trigger("create");
+		$("table#allTable tbody").empty();
+	 }
+	 
+	 //da un color dependiendo del valor
+	 function validarColorStatus(medicineEstado,id,mifechaActual, fechaExpiracion){
+	      //alert(medicineEstado+" - "+id+" - "+mifechaActual+" - "+fechaExpiracion);
+		  f1=new Date(mifechaActual).getTime();
+		  f2=new Date(fechaExpiracion).getTime();
+		  if(f1>f2){
+		     medicineEstado='<b style="color:red"; class="blink" >Expired</b>';
+		  }else{  
+		     //tener cuidado con esta ya que indica activa pero de la fecha de vencimiento no del estatus de la medicina
+		     medicineEstado='<b style="color:green"; >Active</b>'; 
+		  }
+		  return medicineEstado;
+	 }
+	 //importantisimo el parametro ver cuando es true aplica invisibilidad para un solo nivel, si es false aplica para los 2 niveles anidados que existen
+	function ocultarFilas(nombre,ver){
+	   var  Elementos=$("."+nombre),elementoInvisibidad;
+       
+	   for(i=0;i<Elementos.length;i++){
+	     //alert(Elementos[i].innerHTML);
+		 if(Elementos[i].style.display=='block'){
+		   // alert(ver+" otro valor"+!ver);
+		    if(ver=='false'){			    
+			   //alert(Elementos[i].innerHTML);
+			   elementoInvisibidad=Elementos[i].innerHTML.split("id")[1].substring(2);
+			   elementoInvisibidad=elementoInvisibidad.split("\"")[0];
+			   var  ElementosInternos=$("."+elementoInvisibidad);
+			   
+			   for(j=0;j<ElementosInternos.length;j++){
+			     //alert(ElementosInternos[j].style.display);
+			     ElementosInternos[j].style.display='none';
+			   }
+			   //alert(elementoInvisibidad); 
+			}
+			Elementos[i].style.display='none';
+			
+		 }else{
+		    Elementos[i].style.display='block';
+		}
+		// Elementos[i].style.columnSpan="2";
+       //alert(Elementos[i].innerHTML);
+	   }
+	  
+	}
+	 //listado impreso
+	function listadoMenu(){
+	    
+	    $("#cabeceraTitulos").show();
+	    //$("#cabeceraTitulos2").show();
+		$("table#allTable tbody").empty();
+		var data = localStorage.getItem("LocalData");
+		console.log(data);
+		data = JSON.parse(data);
+		var html = "";
+		var fondo="";
+		  for(var count = 0; count < data.length; count++){			
+				var descomprimir=data[count][1];
+				descomprimir=JSON.parse(descomprimir);
+				var variable1="<br><b>expiryDate: </b>"+descomprimir.expiryDate+"<br><b> serialNumber: </b>"+descomprimir.serialNumber+'<br><b> manufacturer: </b>'+descomprimir.medicineDetails.manufacturer+'<br> <b>tradeName: </b>'+descomprimir.medicineDetails.tradeName+'<br> <b>Status: </b>'+descomprimir.medicineStatus;
+				if(count%2!=0){
+				   fondo="bgcolor='#005581';";
+				}else{
+				   fondo="bgcolor='#007FA9';";
+				} 
+				html = html + "<tr><td></td><td><div  class='blink'><p id='searching"+count.toString(10)+"' style='font-size:0px; font-family:courier;' ></p></div></td></tr> <tr "+ fondo+" style='opacity:0.8;filter:alpha(opacity=80)'; ><td  style='color:white'; >" + data[count][0] + "</td><td width='100%'; style='color:white'; > <a href='javascript:validarMedicinaVacio(\"" + descomprimir.serialNumber +"\",\""+count+"\")'>" + variable1 + "</a></td></tr>";
+			}			
+			$("table#allTable tbody").append(html).closest("table#allTable").trigger("create");
+			// luego de tener la lista creada se ordena
+			ordenamientoAlpha(); 
+			arcordionOculto();
+     }
+	//listado de carga iniciar
+	function listadoCarga(){
+		rellenarPavo("Lipitor",'{"serialNumber": "112680014088591", "productCode": 1126811409, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Pfizer", "tradeName": "Lipitor","serialNumber": "112680014088591","productCode": 1126811409}, "medicineStatus": "ACTIVE"}');
+		rellenarPavo("Lipitor",'{"serialNumber": "112680014088592", "productCode": 1126811409, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Pfizer", "tradeName": "Lipitor","serialNumber": "112680014088592","productCode": 1126811409}, "medicineStatus": "ACTIVE"}');
+		rellenarPavo("Avastin",'{"serialNumber": "456941340540900", "productCode": 4569459100, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Roche", "tradeName": "Avastin","serialNumber": "456941340540900","productCode": 4569459100}, "medicineStatus": "ACTIVE"}');
+		rellenarPavo("Ativan",'{"serialNumber": "597773500705215", "productCode": 1126811408, "batch": 12641333, "expiryDate": "2018-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Pfizer", "tradeName": "Ativan","serialNumber": "597773500705215","productCode": 1126811408}, "medicineStatus": "ACTIVE"}');
+		rellenarPavo("Avastin",'{"serialNumber": "456941340540901", "productCode": 4569459100, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Roche", "tradeName": "Avastin","serialNumber": "456941340540901","productCode": 4569459100}, "medicineStatus": "ACTIVE"}');
+		rellenarPavo("Avastin",'{"serialNumber": "456941340540902", "productCode": 4569459100, "batch": 12641333, "expiryDate": "2018-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Roche", "tradeName": "Avastin","serialNumber": "456941340540902","productCode": 4569459100}, "medicineStatus": "ACTIVE"}');			
+        rellenarPavo("Avastin",'{"serialNumber": "456941340540902", "productCode": 4569459100, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Roche", "tradeName": "Avastin","serialNumber": "456941340540902","productCode": 4569459100}, "medicineStatus": "ACTIVE"}');			
+		rellenarPavo("Xanax"  ,'{"serialNumber": "684668372547808", "productCode": 6846752193, "batch": 87908126, "expiryDate": "2017-08-10T22:49:33.688Z",  "medicineDetails": {"manufacturer": "Pfizer",  "tradeName": "Xanax","serialNumber": "684668372547808","productCode": 6846752193}, "medicineStatus": "ACTIVE"}');
+		rellenarPavo("Fosamax",'{"serialNumber": "836924013076176",  "productCode": 8369323824,  "batch": 99797646,  "expiryDate": "2017-08-10T23:07:12.866Z",  "medicineDetails": {  "manufacturer": "Merck",    "tradeName": "Fosamax",	"serialNumber": "836924013076176",    "productCode": 8369323824},"medicineStatus": "ACTIVE"}');
+  
+	}
+	function rellenarPavo(nombre,value){
+			//var value = '{"$class": "org.vda.Medicine", "serialNumber": "112680014088591", "productCode": 1126811409, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": {"$class": "org.vda.MedicineDetails", "manufacturer": "Pfizer","tradeName": "Lipitor", "productCode": 1126811409},  "medicineStatus": "ACTIVE"}';
+			var name=nombre;
+			var data = localStorage.getItem("LocalData");
+			console.log(data);
+			data = JSON.parse(data);
+		
+			data[data.length] = [name, value];
+
+			localStorage.setItem("LocalData", JSON.stringify(data));
+							
+			var data = localStorage.getItem("LocalData");
+			console.log(data);
+			data = JSON.parse(data);
+ 		}
+
+	//validar medicina vacias: es para no borrar el anterior metodo
+	function validarMedicinaVacio(idSerial,contador){
+	   //class='blink'
+	}
+		
+	function escribirMedicinaLocal(value){
+		
+		var data = localStorage.getItem("LocalData");
+		console.log(data);
+		data = JSON.parse(data);
+		var data2= JSON.parse(value);
+		var name = data2.medicineDetails.tradeName;
+		
+		//aqui escribo en la lista si es valida la medicina	
+		data[data.length] = [name, value];
+		localStorage.setItem("LocalData", JSON.stringify(data));
+	}
+	
+	function validarMedicinaIndividual(idSerial,value){
+	  var root = 'http://'+direccion+':3000/api/Medicine/';
+	  var id=idSerial; 
+	  
+	  $("#cabeceraTitulos").show();
+	 // $("#cabeceraTitulos2").show();
+	  validarUsuario();
+	  escribirEsperaAviso();
+	  
+	  		  $.get(root + id, function(data) {
+			   //aqui tomo la medicina por su serial con el get y veo que estatus tiene, si esta active escribo como mia
+ 			   if(data.medicineStatus=="ACTIVE"){
+				  realizarSmartContractIndividual(data);
+				  actualizarStatusMedicinaIndividual(data,"SELLED");
+				  //por alguna extraña razon el segundo llamando al blocklchain con el mismo serial-id si permite su correcta modificacion: OJO revisarlo luego
+				  actualizarStatusMedicinaIndividual(data,"SELLED");
+				  escribirMedicinaLocal(value);
+				  listadoMenu(); //re-imprimo listado nuevo con la medicina nueva
+			   }else if(data.medicineStatus=="RECALLED"){
+			   }else if(data.medicineStatus=="STOLEN"){
+			   }else if(data.medicineStatus=="SELLED"){
+			     borrarEsperaAviso(); 
+			     alert("this medicine was buyed by "+data.owner);
+			   }
+		  }).fail(function() {
+		        borrarEsperaAviso();
+				alert("the medicine don't exist WARNING! -_-");	
+		  });
+	}	 
+
+	//crear el mensaje
+	function escribirEsperaAviso(){
+	  
+	  var textBlink=" Wait a Moment, the medicine is being Validated in System! ";
+	  escribir = $("#busqueda2");
+	  escribir[0].style.backgroundColor="red";
+	  escribir[0].style.fontSize ="20px";
+	  escribir[0].innerHTML =textBlink;
+	  
+	}
+	//eliminar mensaje creado
+	function borrarEsperaAviso(){
+	  
+	  var textBlink="";
+	  escribir = $("#busqueda2");
+	  escribir[0].style.backgroundColor="transparent";
+	  escribir[0].style.fontSize ="0px";
+	  escribir[0].innerHTML =textBlink;
+	}
+
+	//funcion propia
+	function actualizarStatusMedicinaIndividual(datos,estatus){
+	   var root = 'http://'+direccion+':3000/api/Medicine/'+datos.serialNumber;
+	   //fecha=datos.expiryDate.replace(".", "-");
+	   
+	  var dataObject ={
+			  "$class": "org.vda.Medicine",
+			  "serialNumber": "",
+			  "productCode": datos.productCode,
+			  "batch": datos.batch,
+			  "expiryDate": datos.expiryDate,
+			  "medicineDetails": {
+				"$class": "org.vda.MedicineDetails",
+				"manufacturer": datos.medicineDetails.manufacturer,
+				"tradeName": datos.medicineDetails.tradeName,
+				"serialNumber": datos.serialNumber,
+				"productCode": datos.productCode 
+			  },
+			  "medicineStatus": estatus,
+			  "owner":device.uuid
+			};
+
+			$.ajax({
+			url: root,
+			type: 'PUT',
+			dataType: 'json',
+			data: dataObject,
+			success: function (data, textStatus, xhr) {
+				 borrarEsperaAviso(); 
+				 alert("Medicine Stored in BlockChain!");
+				 
+			},
+			error: function (xhr, textStatus, errorThrown) {
+			   borrarEsperaAviso(); 
+			   alert("Fail Big in Network or Medicine Problem Update! "+xhr);
+			   
+			}
+		});
+	   
+	}
+	
+	function realizarSmartContractIndividual(medicina){
+	 // este contrato se asumen varias cosas, como por ejemplo que el fabricante existe y es valido asi como el user ya esta en el sistema (el modelo que tenemos no lo hace)
+	 
+	 //se debe validar que esta medicina no alla sido registrada por otra persona (el modelo que tenemos no lo hace)
+	 //funcion para validar insertar aqui
+	 //aqui cambio el status si esta medicina no me pertenece, cambio a vendida... (el modelo que tenemos no lo hace)
+		  var root = 'http://'+direccion+':3000/api/PrivateMedicineTransfer';
+				$.post(root,{seller:medicina.medicineDetails.manufacturer,buyer:device.uuid, medicine:medicina.serialNumber,specialNotes: "SALED to  "+device.uuid}).fail(function() {
+					borrarEsperaAviso(); 
+					//alert("Warning Medicine or User Suspicious! ");
+					 console.log("Warning Medicine Suspicious! ");
+					 //borrarEspera(contador);
+				})
+				.done(function( data ) {
+				  //alert( "User Loaded: " + data.email );
+				  borrarEsperaAviso(); 
+				  alert("your Medicine: "+medicina.medicineDetails.tradeName+"  is valid!");
+				  console.log("User Loaded: " + device.uuid);
+				});	
+	} 
+		 
+	//inserto el usuario por primera vez sino existe en el composer	 
+	function validarUsuario(){
+
+		var root = 'http://'+direccion+':3000/api/PrivateOwner';
+		
+		$.post(root,{email:device.uuid}).fail(function() {
+					//alert("Warning User Duplicate! ");
+					 console.log("User Duplicate! ");
+				})
+				.done(function( data ) {
+				  //alert( "User Loaded: " + data.email );
+				  console.log("User Loaded: " + data.email);
+				});
+	}
+	   //foto scan QR_CODE
+	 $(document).on("click","#scan",function (){
+			 cordova.plugins.barcodeScanner.scan(
+				function (result) {
+					if(!result.cancelled)
+					{
+						if(result.format == "QR_CODE")
+						{
+						   // aqui puedo tomar el id de la medicina de una vez, sacandolo del json del QR
+								var value = result.text;
+								var data2= JSON.parse(value);
+								var serialNumbero=data2.serialNumber;
+								//validando que sea correcta la medicina, para poder agregarla al grupo
+								validarMedicinaIndividual(serialNumbero,value);
+								 
+						}
+					}
+				},
+				function (error) {
+					alert("Scanning failed: " + error);
+				}
+		   );
+		});
+		 
+	   //mostrar lista de medicinas 
+	$(document).on("click","#boton",function() {
+			 var image = document.getElementById('imagen');
+			 image.src = "img/boton2CA.png";
+			navigator.notification.beep(1);
+			listadoMenu();
+		});
+		
+
+	 function openURL(url){
+		  window.open(url, '_blank', 'location=yes');
+	 }
+
+		//initialize
+	if(localStorage.getItem("LocalData") == null){
+			var data = [];
+			data = JSON.stringify(data);
+			localStorage.setItem("LocalData", data);
+			
+		}else{
+		   /*
+			rellenarPavo("Lipitor",'{"serialNumber": "112680014088591", "productCode": 1126811409, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Pfizer", "tradeName": "Lipitor","serialNumber": "112680014088591","productCode": 1126811409}, "medicineStatus": "ACTIVE"}');
+			rellenarPavo("Avastin",'{"serialNumber": "456941340540900", "productCode": 4569459100, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Roche", "tradeName": "Avastin","serialNumber": "456941340540900","productCode": 4569459100}, "medicineStatus": "ACTIVE"}');
+			rellenarPavo("Ativan",'{"serialNumber": "597773500705215", "productCode": 1126811408, "batch": 12641333, "expiryDate": "2017-08-10T22:51:00.016Z", "medicineDetails": { "manufacturer": "Pfizer", "tradeName": "Ativan","serialNumber": "597773500705215","productCode": 1126811408}, "medicineStatus": "ACTIVE"}');
+			*/	
+			
+		}
+			
+			
+        </script>
+</html>
